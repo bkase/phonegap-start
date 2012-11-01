@@ -14,6 +14,8 @@
     </author>
 
     <feature name="http://api.phonegap.com/1.0/device" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <plugin name="Camera" value="org.apache.cordova.CameraLauncher" />
 
     <preference name="phonegap-version" value="2.0.0" />
     <preference name="orientation"      value="default" />
