@@ -3,7 +3,7 @@ var takePicture = (function() {
 
   // Called when a photo is successfully retrieved
     //
-    function onPhotoDataSuccess(imageData) {
+    function onPhotoDataSuccess(imageURI) {
       // Uncomment to view the base64 encoded image data
       // console.log(imageData);
 
@@ -19,6 +19,8 @@ var takePicture = (function() {
       //// The inline CSS rules are used to resize the image
       ////
       //smallImage.src = "data:image/jpeg;base64," + imageData;
+      var image = document.getElementById('smallImage');
+      image.src = imageURI;
       alert("I'm all done");
     }
 
@@ -29,9 +31,7 @@ var takePicture = (function() {
     }
 
   return function() {
-    picSource = navigator.camera.PictureSourceType;
-    // Take picture using device camera, and retrieve image as base64-encoded string  
     navigator.camera.getPicture(onPhotoDataSuccess, onFail, 
-        { quality: 50 });
+        { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
   };
 })(); 
