@@ -32,6 +32,6 @@ var takePicture = (function() {
 
   return function() {
     navigator.camera.getPicture(onPhotoDataSuccess, onFail, 
-        { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
+        { quality: 50, destinationType: Camera.DestinationType.DATA_URL });
   };
 })(); 
